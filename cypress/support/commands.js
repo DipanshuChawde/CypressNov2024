@@ -24,11 +24,16 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('OHRMlogin', (un,pw) => {
+Cypress.Commands.add('OHRMlogin', (un, pw) => {
     //cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     cy.get('[name="username"]').type(un)
     cy.get('[name="password"]').type(pw)
 
     cy.get('.orangehrm-login-button').click()
 })
-
+Cypress.Commands.add('contactUsCmd', (fn,ln,em,msg) => {
+    cy.get('[name="first_name"]').type(fn)
+    cy.get('[name="last_name"]').type(ln)
+    cy.get('[name="email"]').type(em)
+    cy.get('[name="message"]').type(msg)
+})
