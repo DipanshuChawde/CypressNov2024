@@ -31,9 +31,16 @@ Cypress.Commands.add('OHRMlogin', (un, pw) => {
 
     cy.get('.orangehrm-login-button').click()
 })
-Cypress.Commands.add('contactUsCmd', (fn,ln,em,msg) => {
+Cypress.Commands.add('contactUsCmd', (fn, ln, em, msg) => {
     cy.get('[name="first_name"]').type(fn)
     cy.get('[name="last_name"]').type(ln)
     cy.get('[name="email"]').type(em)
     cy.get('[name="message"]').type(msg)
+})
+
+Cypress.Commands.add('hrmCommand2', (un,pw) => {
+    cy.get('[name="username"]').type(un)
+    cy.get('[name="password"]').type(pw)
+
+    cy.get('[type="submit"]').click()
 })
