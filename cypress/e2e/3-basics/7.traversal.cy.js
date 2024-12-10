@@ -16,12 +16,36 @@ describe('traversing DOM element', () => {
         cy.get('.traversal-drinks-list >li:nth-child(3)').should('have.text', 'Milk')
     })
 
-    it.only('siblings',()=>{
+    it('siblings',()=>{
         cy.get('#veggie').prev().should('have.text','Figs')
         cy.get('#veggie').next().should('have.text','Asparagus')
         cy.get('#veggie').prevAll().should('have.length',6)
         cy.get('#veggie').nextAll().should('have.length',4)
         cy.get('#espresso').prevUntil('#coffee').should('have.length',2)
+        cy.get('#coffee').nextUntil('#sugar').should('have.length',3)
+    })
+
+    it('find',()=>{
+        cy.get('#form-textfield').find('[name="firstname"]').type('dipanshu')
+        cy.get('#form-textfield').find('[name="lastname"]').type('chawde')
+        cy.get('#form-textfield').find('textarea').type('hi')
+    })
+
+    it('contains',()=>{
+        cy.get('.traversal-buttons').contains('Link').click()
+    })
+
+    it('contains2',()=>{
+        cy.visit('https://www.webdriveruniversity.com/')
+        cy.contains('CONTACT US').click()
+    })
+
+    it.only('parent,parents,parentsUntil',()=>{
+        cy.get('#milk').parent().should('have.attr',"class","traversal-drinks-list")
+        cy.get('#milk').parents()
+        cy.get('#milk').parents().should('have.length',6)
+        cy.get('#milk').parents().should('match','[class="col-sm-12"]')
+        cy.get('#milk').parents().should('match','[class="container"]')
     })
 
 })
