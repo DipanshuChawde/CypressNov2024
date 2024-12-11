@@ -65,8 +65,10 @@ describe('traversing DOM element', () => {
         cy.get('.traversal-button-states').children().not('.disabled').eq(1).should('have.text','Info')
     })
 
-    it.only('closest',()=>{
+    it('closest',()=>{
         cy.get('[name="firstname"]').closest('div').should('have.attr',"id","thumbnail-1")
 
     })
+
+    
 })
