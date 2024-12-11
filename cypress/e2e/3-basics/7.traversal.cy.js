@@ -40,12 +40,33 @@ describe('traversing DOM element', () => {
         cy.contains('CONTACT US').click()
     })
 
-    it.only('parent,parents,parentsUntil',()=>{
+    it('parent,parents,parentsUntil',()=>{
+        // cy.get('#milk').parent().should('have.attr',"class","traversal-drinks-list")
+        // cy.get('#milk').parents()
+        // cy.get('#milk').parents().should('have.length',6)
+        // cy.get('#milk').parents().should('match','[class="col-sm-12"]')
+        // cy.get('#milk').parents().should('match','[class="container"]')
+        cy.get('#milk').should('have.text','Milk')
+        cy.get('#milk').parent()
         cy.get('#milk').parent().should('have.attr',"class","traversal-drinks-list")
         cy.get('#milk').parents()
         cy.get('#milk').parents().should('have.length',6)
-        cy.get('#milk').parents().should('match','[class="col-sm-12"]')
-        cy.get('#milk').parents().should('match','[class="container"]')
+        cy.get('#milk').parents().should('match','[class="thumbnail"]')
+
     })
 
+    it('children',()=>{
+        cy.get('.traversal-drinks-list').children().should('have.length',5)
+
+        cy.get('.traversal-button-states').children().filter('.disabled').should('have.text','Warning')
+        cy.get('.traversal-button-states').children().not('.disabled').should('have.length',3)
+        cy.get('.traversal-button-states').children().not('.disabled').first().should('have.text','Danger')
+        cy.get('.traversal-button-states').children().not('.disabled').last().should('have.text','Alert')
+        cy.get('.traversal-button-states').children().not('.disabled').eq(1).should('have.text','Info')
+    })
+
+    it.only('closest',()=>{
+        cy.get('[name="firstname"]').closest('div').should('have.attr',"id","thumbnail-1")
+
+    })
 })
