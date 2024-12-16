@@ -44,3 +44,12 @@ Cypress.Commands.add('hrmCommand2', (un,pw) => {
 
     cy.get('[type="submit"]').click()
 })
+
+Cypress.Commands.add('contactUs', (fn,ln,em,msg) => { 
+    cy.get('[name="first_name"]').type(fn)
+        cy.get('[name="last_name"]').type(ln)
+        cy.get('[name="email"]').type(em)
+        cy.get('[name="message"]').type(msg)
+
+        cy.get('[type="submit"]').click()
+ })
