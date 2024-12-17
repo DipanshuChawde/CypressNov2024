@@ -13,4 +13,20 @@ describe('verify text of element', () => {
                 cy.log($txt.text())
             })
     })
+
+    it('to get element rev',()=>{
+        cy.visit('https://www.letskodeit.com/practice')
+        cy.get('[data-uniqid="1621702280245"]').invoke('text').then((txt)=>{
+            //cy.log(txt)
+            expect(txt).to.eq('Practice Page')
+        })
+    })
+
+    it.only('to get element rev',()=>{
+        cy.visit('https://www.letskodeit.com/practice')
+        cy.get('[data-uniqid="1621702280245"]').then(($ele)=>{
+            //cy.log($ele.text())
+           expect($ele.text()).to.eq('Practice Page')
+        })
+    })
 })
