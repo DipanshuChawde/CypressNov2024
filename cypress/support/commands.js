@@ -53,3 +53,8 @@ Cypress.Commands.add('contactUs', (fn,ln,em,msg) => {
 
         cy.get('[type="submit"]').click()
  })
+
+ Cypress.Commands.add('getiFrameBody', (frameId) => { 
+   return cy.get(frameId).its('0.contentDocument.body').then(cy.wrap)
+ })
+ 
