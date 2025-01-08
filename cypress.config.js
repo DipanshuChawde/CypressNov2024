@@ -4,6 +4,8 @@ module.exports = defineConfig({
   //includeShadowDom : true,
   chromeWebSecurity : false, //for multi tab or multi-window
   e2e: {
+   // baseUrl:"https://opensource-demo.orangehrmlive.com",
+   
     setupNodeEvents(on, config) {
       // implement node event listeners here
       //task1 (11.cytask)-------------------
