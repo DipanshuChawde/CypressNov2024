@@ -48,5 +48,5 @@ describe('environments in cypress', () => {
 // "stage-test" : "npx cypress run --spec 'cypress/e2e/3-basics/28.environments.cy.js' --browser edge --headed --config-file stage.config.js ",
 // "prod-test" : "npx cypress run --spec 'cypress/e2e/3-basics/28.environments.cy.js' --browser chrome --headed --config-file prod.config.js"
 // then run following command on cli
-// npm run prod - test
-// npm run stage - test
+// npm run prod-test
+// npm run stage-test
