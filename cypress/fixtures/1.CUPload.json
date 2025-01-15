@@ -1,0 +1,20 @@
+{
+    "userOne": {
+        "fn": "dipanshu",
+        "ln": "chawde",
+        "email": "dipanshu@gmail.com",
+        "msg": "i am learning cypress"
+    },
+    "userTwo": {
+        "fn": "dipanshu",
+        "ln": "chawde",
+        "email": "dipanshu@gmail.com",
+        "msg": "i am learning cypress"
+    },
+    "userThree": {
+        "fn": "dipanshu",
+        "ln": "chawde",
+        "email": "dipanshu@gmail.com",
+        "msg": "i am learning cypress"
+    }
+}
