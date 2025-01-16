@@ -1,21 +1,20 @@
-{
-    "userOne": {
+[
+    {
         "fn": "dipanshu",
         "ln": "chawde",
         "email": "dipanshu@gmail.com",
         "msg": "i am learning cypress"
     },
-    "userTwo": {
-        
+    {
         "fn": "rucha",
         "ln": "gaware",
         "email": "rucha@gmail.com",
         "msg": "i am learning power BI"
     },
-    "userThree": {
+    {
         "fn": "aditya",
         "ln": "masalkar",
         "email": "aditya@gmail.com",
         "msg": "i am learning python"
     }
-}
+]
