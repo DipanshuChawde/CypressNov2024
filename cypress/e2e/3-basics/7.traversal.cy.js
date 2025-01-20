@@ -6,7 +6,7 @@ describe('traversing DOM element', () => {
         cy.visit('https://www.webdriveruniversity.com/Data-Table/index.html')
     })
 
-    it('Tarvarsing1', () => {
+    it.only('Tarvarsing1', () => {
         cy.get('.traversal-drinks-list >li').should('have.length',5)
         cy.get('.traversal-drinks-list >li').first().should('have.text', 'Coffee')
         cy.get('.traversal-drinks-list >li').last().should('have.text', 'Sugar')

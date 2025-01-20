@@ -9,7 +9,7 @@ describe('TS001 : verify intercept concept', function () {
             url: 'https://jsonplaceholder.cypress.io/comments/1',
             method: 'GET'
         }, {
-            body: data
+            body: data //data mocking
             // {
 
             //         "postId": 1,
@@ -22,6 +22,7 @@ describe('TS001 : verify intercept concept', function () {
         }).as('getComment')
 
         cy.contains('Get Comment').click()
+        
         cy.wait('@getComment').then((res) => {
             cy.log(res)
         })
