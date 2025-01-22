@@ -1,5 +1,6 @@
 ///<reference types='cypress' />
 import postD from "../../fixtures/1.Api/gorPostData"
+import putD from "../../fixtures/1.Api/gorPutData"
 
 describe('TS001 : verify reqres Api for gorest', function () {
     postD.forEach((el, index) => {
@@ -19,8 +20,15 @@ describe('TS001 : verify reqres Api for gorest', function () {
                     Authorization: `Bearer ${token}`
                 }
             }).then((respost) => {
-                cy.log(respost.body.id)
+                //cy.log(respost.body.id)
                 expect(respost.body.name).to.eq(el.name)
+                return respost.body.id
+            }).then((userId)=>{
+                cy.request({
+                    url : `https://gorest.co.in/public/v2/users/${userId}`,
+                    method : 'PUT',
+                    body : putD[index]
+                })
             })
         })
     })
