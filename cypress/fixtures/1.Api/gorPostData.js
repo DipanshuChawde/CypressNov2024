@@ -2,19 +2,19 @@ export default[
     {
         "name":"Neel Chawde", 
         "gender":"male", 
-        "email":`neel${Math.floor(Math.random(100))+1000}@gmail.com`,
+        "email":`neell${Math.floor(Math.random()*1000)+27}@gmail.com`,
         "status":"active"
     },
     {
         "name":"Dipanshu Chawde", 
         "gender":"male", 
-        "email":`dipanshu${Math.floor(Math.random(100))+1000}@gmail.com`,
+        "email":`dipanshuu${Math.floor(Math.random()*1000)+27}@gmail.com`,
         "status":"active"
     },
     {
         "name":"Aditya Masalkar", 
         "gender":"male", 
-        "email":`aditya${Math.floor(Math.random(100))+1000}@gmail.com`,
+        "email":`adityaa${Math.floor(Math.random()*1000)+27}@gmail.com`,
         "status":"active"
     }
 ]
