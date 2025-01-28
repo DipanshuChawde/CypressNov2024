@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "stage-test" :"npx cypress run --spec 'cypress/e2e/3-basics/28.environments.cy.js' --browser edge --headed --config-file stage.config.js ",
-    "prod-test" :"npx cypress run --spec 'cypress/e2e/3-basics/28.environments.cy.js' --browser chrome --headed --config-file prod.config.js",
+    "stage-test": "npx cypress run --spec 'cypress/e2e/3-basics/28.environments.cy.js' --browser edge --headed --config-file stage.config.js ",
+    "prod-test": "npx cypress run --spec 'cypress/e2e/3-basics/28.environments.cy.js' --browser chrome --headed --config-file prod.config.js",
     "test:parallel": "npx cypress run --spec 'cypress/e2e/3-basics/1.login.cy.js',"
   },
   "keywords": [],
@@ -14,5 +14,8 @@
   "description": "",
   "devDependencies": {
     "cypress": "^13.15.2"
+  },
+  "dependencies": {
+    "xml2js": "^0.6.2"
   }
 }
