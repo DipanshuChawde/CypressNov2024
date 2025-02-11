@@ -10,6 +10,7 @@ describe("verify automation Exercise Page", () => {
             hp.urlVisit(hp.selectors.url)
             hp.btnClick(hp.selectors.loginSignUpbtn)
             hp.registerNewUser(el)
+            //hp.btnClick(hp.selectors.signUpBtn)
         })
     })
 })
