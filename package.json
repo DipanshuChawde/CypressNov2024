@@ -6,7 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "stage-test": "npx cypress run --spec 'cypress/e2e/3-basics/28.environments.cy.js' --browser edge --headed --config-file stage.config.js ",
     "prod-test": "npx cypress run --spec 'cypress/e2e/3-basics/28.environments.cy.js' --browser chrome --headed --config-file prod.config.js",
-    "test:parallel": "npx cypress run --spec 'cypress/e2e/3-basics/1.login.cy.js',"
+    "test:parallel": "npx cypress run --spec 'cypress/e2e/3-basics/1.login.cy.js',",
+    "mytest": "npx cypress run --headed",
+    "cypress:parallel": "cypress-parallel -d cypress/e2e/parallelExe/ -t 2 -s mytest"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,8 @@
     "cypress": "^13.15.2"
   },
   "dependencies": {
+    "cypress-downloadfile": "^1.2.4",
+    "cypress-parallel": "^0.14.0",
     "xml2js": "^0.6.2"
   }
 }

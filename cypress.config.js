@@ -1,12 +1,14 @@
 const { defineConfig } = require("cypress");
+const {downloadFile} = require('cypress-downloadfile/lib/addPlugin') //for file downloade
 
 module.exports = defineConfig({
   //includeShadowDom : true,
-  chromeWebSecurity : false, //for multi tab or multi-window
+  //chromeWebSecurity : false, //for multi tab or multi-window
   e2e: {
    // baseUrl:"https://opensource-demo.orangehrmlive.com",
    
     setupNodeEvents(on, config) {
+      on('task', {downloadFile}) //for file downloade
       // implement node event listeners here
       //task1 (11.cytask)-------------------
 

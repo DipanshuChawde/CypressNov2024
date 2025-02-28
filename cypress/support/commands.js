@@ -79,3 +79,28 @@ Cypress.Commands.add('OhrmLoginBySession', (un, pw) => {
         cy.get('.orangehrm-login-button').click()
     })
 })
+ 
+
+
+Cypress.Commands.add('loginBySession', (un, pw) => {
+    cy.session([un, pw], () => {
+    // Visit the main site
+    cy.visit('https://test.mm100.mastermindtms.com');
+
+    // Ensure it redirects to the login page
+    cy.url().should('include', 'id.mm100nonprod.mastermindtms.com/auth/realms/');
+    cy.get("[id='show-email']").click(); 
+    // Enter username and password
+    cy.get('input[name="username"]').type(un); // Change to valid username
+cy.get('input[name="password"]').type(pw, { log: false }); // Change to valid password
+
+    // Click the login button
+    cy.get("[id='kc-login']").click();
+
+    // Ensure it redirects back to the main site after login
+    cy.url().should('include', 'test.mm100.mastermindtms.com');
+    })
+})
+
+
+require('cypress-downloadfile/lib/downloadFileCommand') //for file download
