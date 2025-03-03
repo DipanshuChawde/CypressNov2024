@@ -1,14 +1,34 @@
 const { defineConfig } = require("cypress");
-const {downloadFile} = require('cypress-downloadfile/lib/addPlugin') //for file downloade
-
+const { downloadFile } = require('cypress-downloadfile/lib/addPlugin') //for file downloade
+const { verifyDownloadTasks } = require('cy-verify-downloads'); //for verify file downloade
+//for excel data import---
+const xlsx = require('node-xlsx').default;
+const fs = require('fs');
+const path = require('path');
+//----------
 module.exports = defineConfig({
   //includeShadowDom : true,
   //chromeWebSecurity : false, //for multi tab or multi-window
   e2e: {
-   // baseUrl:"https://opensource-demo.orangehrmlive.com",
-   
+    // baseUrl:"https://opensource-demo.orangehrmlive.com",
+
     setupNodeEvents(on, config) {
-      on('task', {downloadFile}) //for file downloade
+      //for excel data import---
+      on("task", {
+        parseXlsx({ filePath }) {
+          return new Promise((resolve, reject) => {
+            try {
+              const jsonData = xlsx.parse(fs.readFileSync(filePath))
+              resolve(jsonData);
+            } catch (e) {
+              reject(e);
+            }
+          });
+        }
+      })
+      //----------------------
+      on('task', verifyDownloadTasks);//for verify file downloade
+      on('task', { downloadFile }) //for file downloade
       // implement node event listeners here
       //task1 (11.cytask)-------------------
 
@@ -53,7 +73,7 @@ module.exports = defineConfig({
       })
       //task3
       on('task', {
-        addition({a, b}) {
+        addition({ a, b }) {
           c = a + b
           console.log(`addition = ${c}`)
           return c

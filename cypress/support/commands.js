@@ -103,4 +103,9 @@ cy.get('input[name="password"]').type(pw, { log: false }); // Change to valid pa
 })
 
 
-require('cypress-downloadfile/lib/downloadFileCommand') //for file download
+require('cypress-downloadfile/lib/downloadFileCommand'); //for file download
+
+Cypress.Commands.add('parseXlsx', (inputFile) => {  //for excel data import
+             return cy.task('parseXlsx' , { filePath: inputFile})
+        })
+   
