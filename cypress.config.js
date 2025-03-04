@@ -9,6 +9,7 @@ const path = require('path');
 module.exports = defineConfig({
   //includeShadowDom : true,
   //chromeWebSecurity : false, //for multi tab or multi-window
+  video : true,
   e2e: {
     // baseUrl:"https://opensource-demo.orangehrmlive.com",
 
