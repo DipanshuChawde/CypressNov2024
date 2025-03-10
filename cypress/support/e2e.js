@@ -20,3 +20,5 @@ import './commands'
 // require('./commands')
 
 require('cy-verify-downloads').addCustomCommand();
+
+import 'cypress-mochawesome-reporter/register'; //for reporters

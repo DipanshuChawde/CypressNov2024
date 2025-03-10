@@ -40,3 +40,5 @@ step 2 : in package .json create following script
 
 -----------------------------------------------------------------------------------
 
+-------------------reporters in cypress---------------------------------------------
+https://github.com/LironEr/cypress-mochawesome-reporter

@@ -1,6 +1,6 @@
 const { defineConfig } = require("cypress");
-const { downloadFile } = require('cypress-downloadfile/lib/addPlugin') //for file downloade
-const { verifyDownloadTasks } = require('cy-verify-downloads'); //for verify file downloade
+const { downloadFile } = require('cypress-downloadfile/lib/addPlugin') //for file downlode
+const { verifyDownloadTasks } = require('cy-verify-downloads'); //for verify file downlode
 //for excel data import---
 const xlsx = require('node-xlsx').default;
 const fs = require('fs');
@@ -10,10 +10,12 @@ module.exports = defineConfig({
   //includeShadowDom : true,
   //chromeWebSecurity : false, //for multi tab or multi-window
   video : true,
+  reporter: 'cypress-mochawesome-reporter', //for reporters
   e2e: {
     // baseUrl:"https://opensource-demo.orangehrmlive.com",
 
     setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on); //for reporters
       //for excel data import---
       on("task", {
         parseXlsx({ filePath }) {
