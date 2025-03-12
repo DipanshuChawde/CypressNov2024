@@ -11,26 +11,26 @@ jobs:
     runs-on : ubuntu-latest  
 
     steps : 
-    #step 1 :checkout code from git repository
-      -name : Checkout code
-      uses : actions/checkout@v4
+      #step 1 :checkout code from git repository
+      - name : Checkout code
+        uses : actions/checkout@v4
 
     #step2 : set up node js environment 
-      -name : Set up Node.js 
-      uses : actions/setup-node@v4
-      with : 
+      - name : Set up Node.js 
+        uses : actions/setup-node@v4
+        with : 
         node-version: 18
 
     #step 3 : install dependencies
-      -name : Install dependencies
-      run : npm install
+      - name : Install dependencies
+        run : npm install
 
     #step4: run cypress test from specific folder
-      -name : Run cypress Test
-      run : 
+      - name : Run cypress Test
+        run : 
         npx cypress run --spec "cypress/e2e/parallelExe/**/*.cy.js"  
 
-        
+
 
 
 
