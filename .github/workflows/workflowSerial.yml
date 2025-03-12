@@ -28,7 +28,7 @@ jobs:
     #step4: run cypress test from specific folder
       - name : Run cypress Test
         run : 
-        npx cypress run --spec "cypress/e2e/parallelExe/**/*.cy.js"  
+          npx cypress run --spec "cypress/e2e/parallelExe/**/*.cy.js"  
 
 
 
