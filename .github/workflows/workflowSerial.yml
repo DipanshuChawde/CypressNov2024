@@ -1,34 +1,79 @@
-name: Run Cypress E2E (specific folder)
+name: Run Cypress E2E (Specific Folder)
 
-on : 
-  push : 
-    branches : 
-      -main
-  pull_request : 
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  cypress-run : 
-    runs-on : ubuntu-latest  
+  cypress-run:
+    runs-on: ubuntu-latest
+   
 
-    steps : 
-      #step 1 :checkout code from git repository
-      - name : Checkout code
-        uses : actions/checkout@v4
+    steps:
+      # Step 1: Checkout code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    #step2 : set up node js environment 
-      - name : Set up Node.js 
-        uses : actions/setup-node@v4
-        with : 
-        node-version: 18
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-    #step 3 : install dependencies
-      - name : Install dependencies
-        run : npm install
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
 
-    #step4: run cypress test from specific folder
-      - name : Run cypress Test
-        run : 
-          npx cypress run --spec "cypress/e2e/parallelExe/**/*.cy.js"  
+      # Step 4: Run Cypress tests from a specific folder
+      - name: Run Cypress tests
+        run: |
+          npx cypress run --spec "cypress/e2e/parallelExe/**/*.cy.js"
+        
+
+      # (Optional) Step 5: Upload videos and screenshots on failure
+      - name: Upload Cypress Artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/videos
+            cypress/screenshots  
+
+#----------------------
+# name: Run Cypress E2E (specific folder)
+
+# on : 
+#   push : 
+#     branches : 
+#       -main
+#   pull_request : 
+
+# jobs:
+#   cypress-run : 
+#     runs-on : ubuntu-latest  
+
+#     steps : 
+#       #step 1 :checkout code from git repository
+#       - name : Checkout code
+#         uses : actions/checkout@v4
+
+#     #step2 : set up node js environment 
+#       - name : Set up Node.js 
+#         uses : actions/setup-node@v4
+#         with : 
+#         node-version: 18
+
+#     #step 3 : install dependencies
+#       - name : Install dependencies
+#         run : npm install
+
+#     #step4: run cypress test from specific folder
+#       - name : Run cypress Test
+#         run : 
+#           npx cypress run --spec "cypress/e2e/parallelExe/**/*.cy.js"  
 
 
 
