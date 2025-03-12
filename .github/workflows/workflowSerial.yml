@@ -9,6 +9,10 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    strategy : 
+      fail-fast : false
+      matrix : 
+        container : [1, 2, 3, 4]
    
 
     steps:
